@@ -1,0 +1,9 @@
+
+
+(library
+ (name Main)
+ (public_name rekube.ppx)
+ (kind ppx_rewriter)
+ (preprocess (pps ppx_tools_versioned.metaquot_406))
+ (libraries ocaml-migrate-parsetree ppx_tools_versioned))
+
