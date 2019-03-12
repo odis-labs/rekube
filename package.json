@@ -9,6 +9,7 @@
   "dependencies": {
     "ocaml": "4.6.x",
     "@opam/dune": "*",
+    "@esy-ocaml/reason": "*",
     "@opam/cohttp-lwt-unix": "*",
     "@opam/lwt": "*",
     "@opam/ppx_deriving_yojson": "*",

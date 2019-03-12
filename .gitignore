@@ -22,3 +22,7 @@ setup.log
 
 # Merlin configuring file for Vim and Emacs
 .merlin
+
+# Esy
+_esy
+node_modules
