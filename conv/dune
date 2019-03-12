@@ -1,0 +1,8 @@
+
+
+(executable
+  (name Rekube_conv)
+  (public_name rekube-conv)
+  (libraries fmt stdio fmt.cli logs yojson yaml logs.cli cmdliner rekube ocaml-migrate-parsetree)
+  (preprocess (pps ppx_tools_versioned.metaquot_406)))
+

@@ -1,0 +1,20 @@
+(rule
+ (targets swagger.json)
+ (action
+  (copy ../swagger/swagger.json swagger.json)))
+
+(rule
+ (targets Rekube.ml)
+ (deps ../gen/gen.exe swagger.json)
+ (action
+  (with-stdout-to
+   Rekube.ml
+   (run %{deps}))))
+
+(library
+ (name Rekube)
+ (public_name rekube)
+ (preprocess
+  (pps ppx_deriving ppx_deriving_yojson))
+ (libraries cohttp-lwt-unix uri lwt depyt ppx_deriving_yojson
+   ppx_deriving_yojson.runtime re.pcre yojson))

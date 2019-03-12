@@ -1,0 +1,27 @@
+{
+  "name": "rekube",
+  "version": "0.2.0",
+  "description": "Reasonable Kubernetes API",
+  "license": "MIT",
+  "esy": {
+    "build": "dune build"
+  },
+  "dependencies": {
+    "ocaml": "4.6.x",
+    "@opam/dune": "*",
+    "@opam/cohttp-lwt-unix": "*",
+    "@opam/lwt": "*",
+    "@opam/ppx_deriving_yojson": "*",
+    "@opam/re": "*",
+    "@opam/swagger": "*",
+    "@opam/uri": "*",
+    "@opam/yojson": "*",
+    "@opam/depyt": "*",
+    "@opam/yaml": "*"
+  },
+  "resolutions": {
+    "@opam/sexplib": "v0.11.0",
+    "@opam/swagger": "github:rizo/ocaml-swagger:swagger.opam#fdaf9df",
+    "@opam/depyt": "github:rizo/depyt:depyt.opam#ca2ccf8"
+  }
+}
