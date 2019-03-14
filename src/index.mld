@@ -3,16 +3,15 @@
 
 Rekube is a toolkit for Kubernetes configuration.
 
-{i Note:} This project is unstable and unreleased.
-
 The main components of the project are:
-
 - {{: #api} {b Kubernetes API}}: The entire Kubernetes API is exposed as a
   ReasonML library.
 - {{: #dsl} {b Configuration DSL}}: A custom PPX (preprocessor extension) can be used to
   write Kubernetes declarations using a JSON-like syntax with type annotations.
 - {{: #conv} {b YAML-to-Reason converter}}: A convenient CLI utility can be used to
   translate existing YAML files into typed ReasonML declarations.
+
+{i Note:} This project is unstable and unreleased.
 
 
 {1:api Kubernetes API}
