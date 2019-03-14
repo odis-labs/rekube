@@ -18,7 +18,7 @@ The main components of the project are:
 
 The full API can be explored from the {!Rekube.Kubernetes} module.
 
-Here are some popular API versions:
+Here are some popular APIs:
 
 - {! Rekube.Kubernetes.Definitions.Api.Core.V1}
 - {! Rekube.Kubernetes.Definitions.Api.Apps.V1}
@@ -40,7 +40,7 @@ in rekube achieves exactly that by building directly on top of the official
 Kubernetes API and relying on excellent modularity and safety properties of
 ReasonML.
 
-{2 Examples}
+{2 Example}
 
 Here is a small example of a node.js app defined using the rekube DSL:
 

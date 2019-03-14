@@ -1,5 +1,5 @@
 {
-  "checksum": "3c1b48511b469db587d460d557dd6cb2",
+  "checksum": "6fd7141ed172c019abd80b9eacca4462",
   "root": "rekube@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#d488cd9321cd5036bd36ec96744ce78c5d45fc49@d41d8cd9": {
@@ -30,7 +30,8 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/yojson@opam:1.5.0@890db858",
-        "@opam/yaml@opam:1.0.0@fae07824", "@opam/uri@opam:2.2.0@dfca6d0f",
+        "@opam/yaml@github:rizo/ocaml-yaml:yaml.opam#4ed9105eff2cd67b7b7672b34dc807fb600ac5d3@d41d8cd9",
+        "@opam/uri@opam:2.2.0@dfca6d0f",
         "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#fdaf9df@d41d8cd9",
         "@opam/sexplib@opam:v0.11.0@bf5282c9",
         "@opam/re@opam:1.7.3@83095efd",
@@ -84,21 +85,17 @@
         "@opam/biniou@opam:1.2.0@c8516f18"
       ]
     },
-    "@opam/yaml@opam:1.0.0@fae07824": {
-      "id": "@opam/yaml@opam:1.0.0@fae07824",
+    "@opam/yaml@github:rizo/ocaml-yaml:yaml.opam#4ed9105eff2cd67b7b7672b34dc807fb600ac5d3@d41d8cd9": {
+      "id":
+        "@opam/yaml@github:rizo/ocaml-yaml:yaml.opam#4ed9105eff2cd67b7b7672b34dc807fb600ac5d3@d41d8cd9",
       "name": "@opam/yaml",
-      "version": "opam:1.0.0",
+      "version":
+        "github:rizo/ocaml-yaml:yaml.opam#4ed9105eff2cd67b7b7672b34dc807fb600ac5d3",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/17/17e1d206e8b47092864163afb616ebeb#md5:17e1d206e8b47092864163afb616ebeb",
-          "archive:https://github.com/avsm/ocaml-yaml/releases/download/v1.0.0/yaml-v1.0.0.tbz#md5:17e1d206e8b47092864163afb616ebeb"
-        ],
-        "opam": {
-          "name": "yaml",
-          "version": "1.0.0",
-          "path": "esy.lock/opam/yaml.1.0.0"
-        }
+          "github:rizo/ocaml-yaml:yaml.opam#4ed9105eff2cd67b7b7672b34dc807fb600ac5d3"
+        ]
       },
       "overrides": [],
       "dependencies": [
