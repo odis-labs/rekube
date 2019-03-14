@@ -18,9 +18,8 @@
     "@opam/uri": "*",
     "@opam/yojson": "*",
     "@opam/depyt": "github:rizo/depyt:depyt.opam#ca2ccf8",
-    "@opam/yaml": "*"
-  },
-  "resolutions": {
+    "@opam/yaml": "*",
+
     "@opam/sexplib": "v0.11.0"
   }
 }
