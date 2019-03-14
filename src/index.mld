@@ -11,7 +11,7 @@ The main components of the project are:
 - {{: #conv} {b YAML-to-Reason converter}}: A convenient CLI utility can be used to
   translate existing YAML files into typed ReasonML declarations.
 
-{i Note:} This project is unstable and unreleased.
+{b Note:} This project is unstable and unreleased.
 
 
 {1:api Kubernetes API}
@@ -85,8 +85,24 @@ The deployment object is defined as a function that accepts a namespace and the
 number of replicas. It can be instantiated multiple times and used, for
 example, in different Kubernetes clusters.
 
+
+{2 Syntax Extension}
+
+The PPX works by translating all expressions that start with a constructor and
+are followed by a JSON object to function calls in the {{: #api} Kubernetes
+API}. The following example describes the mapping:
+
+{[
+Object {"key1": value1, "key2": value2}
+==>
+Object.make(~key1=value1, ~key2=value2)()
+]}
+
+{b Note:} The extra [()] is needed to avoid partial application of the
+labeled arguments with default values.
+
 The full power of ReasonML can be used in this configuration. Variables can be
-declared, shared definitions can be grouped into modules, standard library
+declared, common definitions can be grouped into modules, standard library
 functions can be used, {i etc}.
 
 
