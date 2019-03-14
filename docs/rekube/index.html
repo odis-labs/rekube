@@ -1,2 +1,35 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>index (rekube.index)</title><link rel="stylesheet" href="../odoc.css"/><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="content"><header><nav><a href="../index.html">Up</a> – rekube</nav></header><h1 id="rekube-index"><a href="#rekube-index" class="anchor"></a>rekube index</h1><h2 id="library-rekube"><a href="#library-rekube" class="anchor"></a>Library rekube</h2><p>The entry point of this library is the module: <a href="Rekube/index.html"><code>Rekube</code></a>.</p><h2 id="library-rekube.ppx"><a href="#library-rekube.ppx" class="anchor"></a>Library rekube.ppx</h2><p>The entry point of this library is the module: <a href="Main/index.html"><code>Main</code></a>.</p></div></body></html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>index (rekube.index)</title><link rel="stylesheet" href="../odoc.css"/><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="content"><header><nav><a href="../index.html">Up</a> – rekube</nav></header><h1 id="rekube"><a href="#rekube" class="anchor"></a>Rekube</h1><p>Rekube is a toolkit for Kubernetes configuration.</p><p><i>Note:</i> This project is unstable and unreleased.</p><p>The main components of the project are:</p><ul><li><a href="#api"><b>Kubernetes API</b></a>: The entire Kubernetes API is exposed as a ReasonML library.</li><li><a href="#dsl"><b>Configuration DSL</b></a>: A custom PPX (preprocessor extension) can be used to write Kubernetes declarations using a JSON-like syntax with type annotations.</li><li><a href="#conv"><b>YAML-to-Reason converter</b></a>: A convenient CLI utility can be used to translate existing YAML files into typed ReasonML declarations.</li></ul><h2 id="api"><a href="#api" class="anchor"></a>Kubernetes API</h2><p>The full API can be explored from the <a href="Rekube/Kubernetes/index.html"><code>Rekube.Kubernetes</code></a> module.</p><p>Here are some popular API versions:</p><ul><li><a href="Rekube/Kubernetes/Definitions/Api/Core/V1/index.html"><code>Rekube.Kubernetes.Definitions.Api.Core.V1</code></a></li><li><a href="Rekube/Kubernetes/Definitions/Api/Apps/V1/index.html"><code>Rekube.Kubernetes.Definitions.Api.Apps.V1</code></a></li><li><a href="Rekube/Kubernetes/Definitions/Api/Autoscaling/V1/index.html"><code>Rekube.Kubernetes.Definitions.Api.Autoscaling.V1</code></a></li><li><a href="Rekube/Kubernetes/Definitions/Apimachinery/Pkg/Api/Resource/index.html"><code>Rekube.Kubernetes.Definitions.Apimachinery.Pkg.Api.Resource</code></a></li></ul><h2 id="dsl"><a href="#dsl" class="anchor"></a>Configuration DSL</h2><p>Writing declarative configuration that represents an application is the main way to describe deployments and resources in Kubernetes. The standard format used for configuration in the Kubernetes ecosystem is YAML. Although it is a very terse and human-friendly format, it lacks compositional and validation properties that would help it scale to hundreds and thousands of deployments.</p><p>Avoiding unnecessary boilerplate and repetition is important for lowering maintenance effort in any non-trivial distributed system. The configuration DSL in rekube achieves exactly that by building directly on top of the official Kubernetes API and relying on excellent modularity and safety properties of ReasonML.</p><h3 id="examples"><a href="#examples" class="anchor"></a>Examples</h3><p>Here is a small example of a node.js app defined using the rekube DSL:</p><pre><code class="ml">open Kubernetes.Definitions.Api.Apps.V1;
+open Kubernetes.Definitions.Api.Core.V1;
+
+let name = &quot;my-app&quot;;
+
+let deployment = (~replicas=1, ~namespace) =&gt; {
+  let metadata = Meta {
+    &quot;name&quot;: name,
+    &quot;namespace&quot;: namespace,
+    &quot;labels&quot;: [(&quot;app&quot;, name)]
+  };
+  Deployment {
+    &quot;metadata&quot;: metadata,
+    &quot;spec&quot;: Deployment_spec {
+      &quot;replicas&quot;: replicas,
+      &quot;template&quot;: Pod_template_spec {
+        &quot;metadata&quot;: metadata,
+        &quot;spec&quot;: Pod_spec {
+          &quot;containers&quot;: [
+            Container {
+              &quot;name&quot;: name,
+              &quot;image&quot;: &quot;gcr.io/hello-minikube-zero-install/hello-node&quot;,
+              &quot;ports&quot;: [Port { &quot;name&quot;: &quot;app&quot;, &quot;container_port&quot;: 8080 }],
+              &quot;resources&quot;: Resources {
+                &quot;requests&quot;: [(&quot;cpu&quot;, &quot;100m&quot;), (&quot;memory&quot;, &quot;500Mi&quot;)],
+                &quot;limits&quot;:   [(&quot;cpu&quot;, &quot;500m&quot;), (&quot;memory&quot;, &quot;1Gi&quot;)]
+              },
+            }
+          ]
+        }
+      }
+    }
+  }
+}</code></pre><p>The deployment object is defined as a function that accepts a namespace and the number of replicas. It can be instantiated multiple times and used, for example, in different Kubernetes clusters.</p><p>The full power of ReasonML can be used in this configuration. Variables can be declared, shared definitions can be grouped into modules, standard library functions can be used, <i>etc</i>.</p><h2 id="yaml-to-reason-converter"><a href="#yaml-to-reason-converter" class="anchor"></a>YAML-to-Reason converter</h2><p>To facilitate the transition from existing Kubernetes configuration, rekube provides a CLI tool called <code>rekube-conv</code> that will convert any valid YAML manifest file to the ReasonML configuration DSL described above. As part of this process it will validate and infer the types of all the objects.</p><pre><code class="ml">$ esy rekube-conv my-deployment.yaml</code></pre></div></body></html>
