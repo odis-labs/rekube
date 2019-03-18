@@ -8,7 +8,7 @@ open Longident
 
 
 let fail loc s =
-  raise (Location.Error (Location.error ~loc ("ppx_make_record: " ^ s)))
+  raise (Location.Error (Location.error ~loc ("rekube.ppx: " ^ s)))
 
 
 let mk_func ~loc longident =
@@ -53,10 +53,16 @@ let rec expr mapper e =
     let args = [(Nolabel, unit ())] in
     Exp.apply ~loc (mk_func ~loc longident) args
 
+  (* Object without constructor: {"x": v} *)
+  | Pexp_extension (
+      {txt="bs.obj"; _},
+      PStr [{pstr_desc = Pstr_eval({pexp_desc=Pexp_record (_fields, None); _}, _); _}]
+    ) -> fail e.pexp_loc "Error: Object literal without annotation."
+
   | _ -> default_mapper.expr mapper e
 
 
 let () =
   let rewriter _config _cookies = { default_mapper with expr } in
-  Driver.register ~name:"ppx_make_record" Versions.ocaml_406 rewriter
+  Driver.register ~name:"rekube.ppx" Versions.ocaml_406 rewriter
 
