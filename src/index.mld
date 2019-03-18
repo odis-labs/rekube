@@ -118,7 +118,7 @@ number of replicas. It can be instantiated multiple times and used, for
 example, in different Kubernetes clusters.
 
 
-{2 Syntax Extension}
+{2:ppx Syntax Extension}
 
 The PPX (preprocessor extension) works by translating all expressions that
 start with a constructor and are followed by a JSON object to function calls in
@@ -154,6 +154,9 @@ extension will only work with {i quoted} keys.
 - [Error: The function applied to this argument has type ?foo:t -> x. This
 argument cannot be applied with label ~bar] – the key "bar" does not belong to
 the object. The mentioned type will list all available keys.
+- [Error: Object literal without annotation] – configuration objects require a
+module annotation. Without the annotation the syntax {{: ppx} translation} will
+not work.
 
 
 {1 YAML-to-Reason converter}

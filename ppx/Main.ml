@@ -57,7 +57,7 @@ let rec expr mapper e =
   | Pexp_extension (
       {txt="bs.obj"; _},
       PStr [{pstr_desc = Pstr_eval({pexp_desc=Pexp_record (_fields, None); _}, _); _}]
-    ) -> fail e.pexp_loc "Object literal without annotation."
+    ) -> fail e.pexp_loc "Object literal without annotation"
 
   | _ -> default_mapper.expr mapper e
 
