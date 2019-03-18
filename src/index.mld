@@ -1,7 +1,7 @@
 
 {0 Rekube}
 
-Rekube is a toolkit for Kubernetes configuration.
+Rekube is a toolkit for Kubernetes configuration management.
 
 The main components of the project are:
 - {{: #api} {b Kubernetes API}}: The entire Kubernetes API is exposed as a
@@ -12,6 +12,38 @@ The main components of the project are:
   translate existing YAML files into typed ReasonML declarations.
 
 {b Note:} This project is unstable and unreleased.
+
+{2 Quickstart}
+
+To install rekube in an {{: https://esy.sh} esy} project, add the following
+dependency to your [package.json] file:
+
+{[
+  "dependencies": {
+    "rekube": "github:rizo/rekube#a7c4d09"
+  }
+]}
+
+If you are using {{: https://opam.ocaml.org/} opam}, run: [opam install
+rekube].
+
+In your {{: https://dune.build/} dune} project add the following dependencies
+to your [dune] file:
+
+{[
+(executable
+  (name Infra)
+  (public_name gen-infra)
+  (libraries rekube console.lib)
+  (preprocess (pps rekube.ppx)))
+]}
+
+Finally, describe your configuration in a file called [Infra.re] and execute it
+to generate the raw JSON files.
+
+{[
+$ esy gen-infra
+]}
 
 
 {1:api Kubernetes API}
@@ -88,9 +120,9 @@ example, in different Kubernetes clusters.
 
 {2 Syntax Extension}
 
-The PPX works by translating all expressions that start with a constructor and
-are followed by a JSON object to function calls in the {{: #api} Kubernetes
-API}. The following example describes the mapping:
+The PPX (preprocessor extension) works by translating all expressions that
+start with a constructor and are followed by a JSON object to function calls in
+the {{: #api} Kubernetes API}. The following example describes the mapping:
 
 {[
 Object {"key1": value1, "key2": value2}
@@ -104,6 +136,24 @@ labeled arguments with default values.
 The full power of ReasonML can be used in this configuration. Variables can be
 declared, common definitions can be grouped into modules, standard library
 functions can be used, {i etc}.
+
+
+{3 Troubleshooting}
+
+Here is a list of common issues and a suggested solution:
+
+- [Error: Unbound module Foo] – this indicates that after the translation, the
+module [Foo] in the function application [Foo.make] could not be found. Make
+sure the module is accessible in the current scope.
+- [Error: Unbound constructor Foo] – this might happen if you are using
+unquoted object keys ({i e.g.} [Foo { x: 42 }]). The syntax extension will only
+work with {i quoted} keys.
+- [Error: Syntax error: '}' expected] – this might happen if you are mixing
+quoted and unquoted object keys ({i e.g.} [Foo { x: 42, "y": 2 }]). The syntax
+extension will only work with {i quoted} keys.
+- [Error: The function applied to this argument has type ?foo:t -> x. This
+argument cannot be applied with label ~bar] – the key "bar" does not belong to
+the object. The mentioned type will list all available keys.
 
 
 {1 YAML-to-Reason converter}

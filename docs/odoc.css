@@ -34,38 +34,32 @@ table {
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 body {
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   text-align: left;
   color: #333;
-  background: #FFFFFF;
 }
 
 .content {
-  max-width: 90ex;
+  max-width: 80ex;
   margin-left: calc(10vw + 20ex);
   margin-right: 4ex;
   margin-top: 20px;
   margin-bottom: 50px;
-  font-family: "Noticia Text", Georgia, serif;
-  line-height: 1.5;
+  line-height: 1.5em;
 }
 
 .content>header {
   margin-bottom: 30px;
 }
 
-.content>header nav {
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-}
-
 /* Basic markup elements */
 
 b, strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 i, em {
@@ -188,8 +182,8 @@ a.anchor {
    we restart the sequence there like h2  */
 
 h1, h2, h3, h4, h5, h6, .h7, .h8, .h9, .h10 {
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  /* font-family: "Fira Sans", Helvetica, Arial, sans-serif; */
+  font-weight: 600;
   margin: 0.5em 0 0.5em 0;
   padding-top: 0.1em;
   line-height: 1.2;
@@ -197,14 +191,8 @@ h1, h2, h3, h4, h5, h6, .h7, .h8, .h9, .h10 {
 }
 
 h1 {
-  font-weight: 500;
-  font-size: 2.441em;
   margin-top: 1.214em;
-}
-
-h1 {
-  font-weight: 500;
-  font-size: 1.953em;
+  font-size: 2.441em;
   box-shadow: 0 1px 0 0 #ddd;
 }
 
@@ -266,7 +254,8 @@ p code, li code {
   padding: 0 0.3ex;
 }
 
-p a > code {
+/* Links in code should be visible. */
+p a > code, li a > code {
   color: #2C5CBD;
 }
 
