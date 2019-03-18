@@ -8,7 +8,7 @@ open Longident
 
 
 let fail loc s =
-  raise (Location.Error (Location.error ~loc ("[ERROR] " ^ s)))
+  raise (Location.Error (Location.error ~loc ("Error: " ^ s)))
 
 
 let mk_func ~loc longident =
