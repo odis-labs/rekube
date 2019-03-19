@@ -1,4 +1,3 @@
-
 {0 Rekube}
 
 Rekube is a toolkit for Kubernetes configuration management.
@@ -11,7 +10,7 @@ The main components of the project are:
 - {{: #conv} {b YAML-to-Reason converter}}: A convenient CLI utility can be used to
   translate existing YAML files into typed ReasonML declarations.
 
-{b Note:} This project is unstable and unreleased.
+{b Note:} This project is currently unstable and unreleased.
 
 {2 Quickstart}
 
@@ -64,7 +63,7 @@ Writing declarative configuration that represents an application is the main
 way to describe deployments and resources in Kubernetes. The standard format
 used for configuration in the Kubernetes ecosystem is YAML. Although it is a
 very terse and human-friendly format, it lacks compositional and validation
-properties that would help it scale to hundreds and thousands of deployments.
+properties that would help it scale for large clusters.
 
 Avoiding unnecessary boilerplate and repetition is important for lowering
 maintenance effort in any non-trivial distributed system. The configuration DSL
@@ -140,7 +139,7 @@ functions can be used, {i etc}.
 
 {3 Troubleshooting}
 
-Here is a list of common issues and a suggested solution:
+Here is a list of common issues and suggested solutions:
 
 - [Error: Unbound module Foo] – this indicates that after the translation, the
 module [Foo] in the function application [Foo.make] could not be found. Make
@@ -155,8 +154,11 @@ extension will only work with {i quoted} keys.
 argument cannot be applied with label ~bar] – the key "bar" does not belong to
 the object. The mentioned type will list all available keys.
 - [Error: Object literal without annotation] – configuration objects require a
-module annotation. Without the annotation the syntax {{: ppx} translation} will
+module annotation. Without the annotation the syntax {{: #ppx} translation} will
 not work.
+- [Error: This expression has type foo:string -> X.t but an expression was
+expected of type X.t] – This type error indicates that the [X.make] was not
+fully applied. You need to provide the value for the required key [foo].
 
 
 {1 YAML-to-Reason converter}

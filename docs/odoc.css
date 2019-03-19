@@ -49,7 +49,7 @@ body {
   margin-right: 4ex;
   margin-top: 20px;
   margin-bottom: 50px;
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 .content>header {
@@ -127,7 +127,7 @@ a {
 }
 
 a:hover {
-  box-shadow: 0 1px 0 0 #2C5CBD;
+  text-decoration: underline;
 }
 
 /* Linked highlight */
@@ -184,7 +184,7 @@ a.anchor {
 h1, h2, h3, h4, h5, h6, .h7, .h8, .h9, .h10 {
   /* font-family: "Fira Sans", Helvetica, Arial, sans-serif; */
   font-weight: 600;
-  margin: 0.5em 0 0.5em 0;
+  margin: 1em 0 0.5em 0;
   padding-top: 0.1em;
   line-height: 1.2;
   overflow-wrap: break-word;
@@ -237,21 +237,22 @@ h4 {
 
 tt, code, pre {
   font-family: "Fira Mono", courier;
-  font-weight: 400;
 }
 
 pre {
   padding: 0.1em;
-  border: 1px solid #eee;
   border-radius: 5px;
   overflow-x: auto;
 }
 
+/* Inline code */
 p code, li code {
-  background-color: #f6f8fa;
+  background-color: rgba(27,31,35,.02);
+  border: 1px solid rgba(27,31,35,.05);
   color: #0d2b3e;
   border-radius: 3px;
-  padding: 0 0.3ex;
+  padding: 0.1ex 0.5ex;
+  font-size: 0.938em;
 }
 
 /* Links in code should be visible. */
@@ -667,10 +668,14 @@ h1+.modules, h1+.sel {
 
 .hljs {
   display: block;
-  background: white;
+	/* background: white; */
   padding: 0.5em;
   color: #333333;
   overflow-x: auto;
+
+  border-radius: 3px;
+  background-color: rgba(27,31,35,.02);
+  border: 1px solid rgba(27,31,35,.05);
 }
 
 .hljs-comment,

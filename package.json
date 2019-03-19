@@ -4,12 +4,12 @@
   "description": "Reasonable Kubernetes API",
   "license": "MIT",
   "esy": {
-    "build": "dune build"
+    "build": "refmterr dune build"
+  },
+  "scripts": {
+    "doc": "refmterr dune build @doc"
   },
   "dependencies": {
-    "ocaml": "4.6.x",
-    "@opam/dune": "*",
-    "@esy-ocaml/reason": "*",
     "@opam/cohttp-lwt-unix": "*",
     "@opam/lwt": "*",
     "@opam/ppx_deriving_yojson": "*",
@@ -21,5 +21,14 @@
     "@opam/yaml": "*",
 
     "@opam/sexplib": "v0.11.0"
+  },
+  "devDependencies": {
+    "ocaml": "4.6.x",
+    "@opam/dune": "*",
+    "@esy-ocaml/reason": "*",
+    "refmterr": "*",
+    "@opam/merlin": "*",
+    "ocaml": "~4.6.0",
+    "@opam/odoc": "*"
   }
 }
