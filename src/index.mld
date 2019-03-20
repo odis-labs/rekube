@@ -1,6 +1,7 @@
 {0 Rekube}
 
-Rekube is a toolkit for Kubernetes configuration management.
+Rekube is a toolkit for {{: https://kubernetes.io/} Kubernetes} configuration
+management.
 
 The main components of the project are:
 - {{: #api} {b Kubernetes API}}: The entire Kubernetes API is exposed as a
@@ -161,7 +162,7 @@ expected of type X.t] – This type error indicates that the [X.make] was not
 fully applied. You need to provide the value for the required key [foo].
 
 
-{1 YAML-to-Reason converter}
+{1:conv YAML-to-Reason converter}
 
 To facilitate the transition from existing Kubernetes configuration, rekube
 provides a CLI tool called [rekube-conv] that will convert any valid YAML
