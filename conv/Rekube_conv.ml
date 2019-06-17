@@ -23,6 +23,7 @@ let rec yaml_to_json (y : Yaml.value) : Json.json =
   match y with
   | `Null -> `Null
   | `Bool x -> `Bool x
+  | `Float x when ceil x = x -> `Int (int_of_float x)
   | `Float x -> `Float x
   | `String x -> `String x
   | `A xs -> `List (List.map yaml_to_json xs)
@@ -237,6 +238,7 @@ end
 let find_object ~api_version ~kind =
   match (api_version, kind) with
   | ("apps/v1", "Deployment") -> (module Rekube.Kubernetes.Definitions.Api.Apps.V1.Deployment : Object)
+  | ("extensions/v1beta1", "Deployment") -> (module Rekube.Kubernetes.Definitions.Api.Extensions.V1beta1.Deployment : Object)
   | _ -> invalid_arg("Unknown object kind")
 
 
