@@ -24,8 +24,6 @@
   "devDependencies": {
     "ocaml": "4.6.x",
     "@opam/dune": "*",
-    "@esy-ocaml/reason": "*",
-    "refmterr": "*",
     "@opam/merlin": "*",
     "@opam/odoc": "*"
   }
