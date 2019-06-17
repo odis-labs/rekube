@@ -18,7 +18,7 @@ let mk_func ~loc longident =
     match Longident.unflatten l with
     | Some lid -> lid
     | None -> failwith (Printf.sprintf "Invalid longident: [%s]" (String.concat "." l)) in
-  Exp.ident (Location.mkloc longident loc)
+  Exp.ident ~loc (Location.mkloc longident loc)
 
 let unit ?loc () =
   Exp.construct ?loc (Location.mknoloc (Lident "()")) None
@@ -42,14 +42,15 @@ let rec expr mapper e =
       match field with
       | ({txt=Lident name; _}, value) -> (Labelled name, expr mapper value)
       | _ -> assert false (* invalid field name *) in
-    let args = List.append (List.map field_to_arg fields) [(Nolabel, unit ())] in
+    let args = List.append (List.map field_to_arg fields) [(Nolabel, unit ~loc ())] in
     Exp.apply ~loc (mk_func ~loc longident) args
 
+  (* X { } *)
   | Pexp_construct(
       {txt=longident; loc},
       Some {pexp_desc=Pexp_object {pcstr_self={ppat_desc = Ppat_any; _}; pcstr_fields=[]}; _}
     ) ->
-    let args = [(Nolabel, unit ())] in
+    let args = [(Nolabel, unit ~loc ())] in
     Exp.apply ~loc (mk_func ~loc longident) args
 
   (* Object without constructor: {"x": v} *)

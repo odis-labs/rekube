@@ -1,0 +1,3 @@
+(executable
+  (name Basic)
+  (preprocess (pps rekube.ppx)))
