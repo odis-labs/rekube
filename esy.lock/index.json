@@ -1,5 +1,5 @@
 {
-  "checksum": "f48603f8591939b6964e95983a1eec96",
+  "checksum": "7173d65c2992b32300f583bb92dc42b1",
   "root": "rekube@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -31,7 +31,7 @@
       "dependencies": [
         "@opam/yojson@opam:1.6.0@f7ec7c12", "@opam/yaml@opam:2.0.0@47a2a3f5",
         "@opam/uri@opam:2.2.1@6bd26f86",
-        "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#fdaf9df@d41d8cd9",
+        "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#98c76b0@d41d8cd9",
         "@opam/sexplib@opam:v0.11.0@bf5282c9",
         "@opam/re@opam:1.9.0@7f4a36a5",
         "@opam/ppx_deriving_yojson@opam:3.4@73152ee9",
@@ -275,14 +275,14 @@
         "@opam/ocamlbuild@opam:0.14.0@427a2331"
       ]
     },
-    "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#fdaf9df@d41d8cd9": {
+    "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#98c76b0@d41d8cd9": {
       "id":
-        "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#fdaf9df@d41d8cd9",
+        "@opam/swagger@github:rizo/ocaml-swagger:swagger.opam#98c76b0@d41d8cd9",
       "name": "@opam/swagger",
-      "version": "github:rizo/ocaml-swagger:swagger.opam#fdaf9df",
+      "version": "github:rizo/ocaml-swagger:swagger.opam#98c76b0",
       "source": {
         "type": "install",
-        "source": [ "github:rizo/ocaml-swagger:swagger.opam#fdaf9df" ]
+        "source": [ "github:rizo/ocaml-swagger:swagger.opam#98c76b0" ]
       },
       "overrides": [],
       "dependencies": [

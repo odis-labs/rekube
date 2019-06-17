@@ -14,12 +14,11 @@
     "@opam/lwt": "*",
     "@opam/ppx_deriving_yojson": "*",
     "@opam/re": "*",
-    "@opam/swagger": "github:rizo/ocaml-swagger:swagger.opam#fdaf9df",
+    "@opam/swagger": "github:rizo/ocaml-swagger:swagger.opam#98c76b0",
     "@opam/uri": "*",
     "@opam/yojson": "1.6.0",
     "@opam/depyt": "github:rizo/depyt:depyt.opam#ca2ccf8",
     "@opam/yaml": "*",
-
     "@opam/sexplib": "v0.11.0"
   },
   "devDependencies": {
@@ -28,7 +27,6 @@
     "@esy-ocaml/reason": "*",
     "refmterr": "*",
     "@opam/merlin": "*",
-    "ocaml": "~4.6.0",
     "@opam/odoc": "*"
   }
 }

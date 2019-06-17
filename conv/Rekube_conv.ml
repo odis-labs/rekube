@@ -45,6 +45,7 @@ let import path =
 
 module Parsetree_encoder = struct
   open Migrate_parsetree.Ast_406
+  module Ast_406 = Migrate_parsetree.Ast_406
   module Exp = Ast_helper.Exp
   module Const = Ast_helper.Const
 
