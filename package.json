@@ -4,7 +4,7 @@
   "description": "Reasonable Kubernetes API",
   "license": "MIT",
   "esy": {
-    "build": "refmterr dune build"
+    "build": "dune build --profile=release"
   },
   "scripts": {
     "doc": "refmterr dune build @doc"
