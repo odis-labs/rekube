@@ -3,6 +3,8 @@
 Rekube is a toolkit for {{: https://kubernetes.io/} Kubernetes} configuration
 management.
 
+{%html[<img src="../example.gif" />]}
+
 The main components of the project are:
 - {{: #api} {b Kubernetes API}}: The entire Kubernetes API is exposed as a
   ReasonML library.
