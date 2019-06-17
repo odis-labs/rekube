@@ -19,7 +19,7 @@ module Json = Yojson.Safe
 module Json_util = Yojson.Safe.Util
 
 
-let rec yaml_to_json (y : Yaml.value) : Json.json =
+let rec yaml_to_json (y : Yaml.value) : Json.t =
   match y with
   | `Null -> `Null
   | `Bool x -> `Bool x
@@ -231,8 +231,8 @@ module type Object = sig
 
   val type_info : unit -> t Depyt.t
 
-  val to_yojson : t -> Yojson.Safe.json
-  val of_yojson : Yojson.Safe.json -> (t, string) result
+  val to_yojson : t -> Yojson.Safe.t
+  val of_yojson : Yojson.Safe.t -> (t, string) result
 end
 
 let find_object ~api_version ~kind =

@@ -1,5 +1,4 @@
-open Migrate_parsetree
-open Ast_406
+open Migrate_parsetree.Ast_406
 open Ast_mapper
 open Ast_helper
 open Asttypes
@@ -64,5 +63,5 @@ let rec expr mapper e =
 
 let () =
   let rewriter _config _cookies = { default_mapper with expr } in
-  Driver.register ~name:"rekube.ppx" Versions.ocaml_406 rewriter
+  Migrate_parsetree.(Driver.register ~name:"rekube.ppx" Versions.ocaml_406 rewriter)
 
