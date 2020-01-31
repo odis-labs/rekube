@@ -2,12 +2,12 @@
 
 Rekube is a ReasonML toolkit for Kubernetes configuration.
 
-![rekube](https://rizo.github.io/rekube/example.gif)
+![rekube](https://odis-labs.github.io/rekube/example.gif)
 
 The main components of the project are:
 
-- [Kubernetes API](https://rizo.github.io/rekube/rekube/index.html#api): The entire Kubernetes API is exposed as a ReasonML library.
-- [Configuration DSL](https://rizo.github.io/rekube/rekube/index.html#dsl): A custom PPX (preprocessor extension) can be used to write Kubernetes declarations using a JSON-like syntax with type annotations.
+- [Kubernetes API](https://odis-labs.github.io/rekube/rekube/index.html#api): The entire Kubernetes API is exposed as a ReasonML library.
+- [Configuration DSL](https://odis-labs.github.io/rekube/rekube/index.html#dsl): A custom PPX (preprocessor extension) can be used to write Kubernetes declarations using a JSON-like syntax with type annotations.
 - [YAML-to-Reason converter](https://rizo.github.io/rekube/rekube/index.html#conv): A convenient CLI utility can be used to translate existing YAML files into typed ReasonML declarations.
 Note: This project is currently unstable and unreleased.
 
@@ -17,7 +17,7 @@ To install rekube in an esy project, add the following dependency to your packag
 
 ```json
 "dependencies": {
-  "rekube": "github:rizo/rekube#a7c4d09"
+  "rekube": "github:odis-labs/rekube#f9d8e20"
 }
 ```
 
