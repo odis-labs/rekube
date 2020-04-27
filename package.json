@@ -10,6 +10,7 @@
     "doc": "refmterr dune build @doc"
   },
   "dependencies": {
+    "ocaml": "4.6.1000",
     "@opam/cohttp-lwt-unix": "*",
     "@opam/lwt": "*",
     "@opam/ppx_deriving_yojson": "*",
