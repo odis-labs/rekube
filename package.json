@@ -17,7 +17,7 @@
     "@opam/swagger": "github:rizo/ocaml-swagger:swagger.opam#98c76b0",
     "@opam/uri": "*",
     "@opam/yojson": "1.6.0",
-    "@opam/depyt": "github:rizo/depyt:depyt.opam#ca2ccf8",
+    "@opam/depyt": "github:rizo/depyt:depyt.opam#e8c7558",
     "@opam/yaml": "*",
     "@opam/sexplib": "v0.11.0"
   },
