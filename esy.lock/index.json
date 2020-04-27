@@ -1,5 +1,5 @@
 {
-  "checksum": "2f825ac996318d1334fbaf2ad912996a",
+  "checksum": "2b45100503a5a266c35a4ea18194baa7",
   "root": "rekube@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#db3a0b63883606dd57c54a7158d560d6cba8cd79@d41d8cd9": {
@@ -36,7 +36,8 @@
         "@opam/ppx_tools_versioned@opam:5.3.0@2c0dc023",
         "@opam/ppx_deriving_yojson@opam:3.5.2@ca415fbe",
         "@opam/lwt@opam:5.2.0@647c0bb8",
-        "@opam/cohttp-lwt-unix@opam:2.5.1@6d59fe96"
+        "@opam/cohttp-lwt-unix@opam:2.5.1@6d59fe96",
+        "@esy-ocaml/reason@3.5.2@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.6.1000@d41d8cd9", "@opam/odoc@opam:1.5.0@35218f5f",
@@ -1054,6 +1055,31 @@
       "dependencies": [
         "ocaml@4.6.1000@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.1000@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae"
+      ]
+    },
+    "@opam/merlin-extend@opam:0.5@a5dd7d4b": {
+      "id": "@opam/merlin-extend@opam:0.5@a5dd7d4b",
+      "name": "@opam/merlin-extend",
+      "version": "opam:0.5",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/sha256/ca/ca3a38c360c7d4827eb4789abf7a6aa4b6e3b4e3c3ef69a5be64dce4601ec227#sha256:ca3a38c360c7d4827eb4789abf7a6aa4b6e3b4e3c3ef69a5be64dce4601ec227",
+          "archive:https://github.com/let-def/merlin-extend/releases/download/v0.5/merlin-extend-v0.5.tbz#sha256:ca3a38c360c7d4827eb4789abf7a6aa4b6e3b4e3c3ef69a5be64dce4601ec227"
+        ],
+        "opam": {
+          "name": "merlin-extend",
+          "version": "0.5",
+          "path": "esy.lock/opam/merlin-extend.0.5"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.1000@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae",
+        "@opam/cppo@opam:1.6.6@f4f83858", "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.6.1000@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae"
@@ -2201,6 +2227,27 @@
       },
       "overrides": [],
       "dependencies": [],
+      "devDependencies": []
+    },
+    "@esy-ocaml/reason@3.5.2@d41d8cd9": {
+      "id": "@esy-ocaml/reason@3.5.2@d41d8cd9",
+      "name": "@esy-ocaml/reason",
+      "version": "3.5.2",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@esy-ocaml/reason/-/reason-3.5.2.tgz#sha1:ac48b63fd66fbbc1d77ab6a2b7e3a1ba21a8f40b"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.1000@d41d8cd9", "@opam/result@opam:1.5@6b753c82",
+        "@opam/ocamlfind@opam:1.8.1@ff07b0f9",
+        "@opam/ocaml-migrate-parsetree@opam:1.5.0@3e319dbc",
+        "@opam/merlin-extend@opam:0.5@a5dd7d4b",
+        "@opam/menhir@opam:20190924@004407ff",
+        "@opam/dune@opam:1.11.4@a7ccb7ae"
+      ],
       "devDependencies": []
     }
   }

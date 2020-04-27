@@ -27,6 +27,18 @@ let should_rewrite = ref false
 
 let rec expr mapper e =
   match e.pexp_desc with
+
+  (* X({ "aaa": vvv }) *)
+  | Pexp_construct (
+      {txt=longident; loc},
+      Some {pexp_desc=
+        Pexp_tuple
+          [{pexp_desc=Pexp_extension
+            ({txt="bs.obj"; _},
+            PStr [{pstr_desc = Pstr_eval({pexp_desc=Pexp_record (fields, None); _}, _); _}]); _}];
+        _
+      })
+
   (* X { "aaa": vvv } *)
   | Pexp_construct (
       {txt=longident; loc},
@@ -59,7 +71,8 @@ let rec expr mapper e =
       PStr [{pstr_desc = Pstr_eval({pexp_desc=Pexp_record (_fields, None); _}, _); _}]
     ) -> fail e.pexp_loc "Object literal without annotation"
 
-  | _ -> default_mapper.expr mapper e
+  | _ ->
+    default_mapper.expr mapper e
 
 
 let () =

@@ -10,6 +10,7 @@
     "doc": "refmterr dune build @doc"
   },
   "dependencies": {
+    "@esy-ocaml/reason": ">= 3.4.0 < 3.6.0",
     "@opam/cohttp-lwt-unix": "*",
     "@opam/lwt": "*",
     "@opam/ppx_deriving_yojson": "*",
