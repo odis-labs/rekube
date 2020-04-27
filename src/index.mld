@@ -10,8 +10,6 @@ The main components of the project are:
   ReasonML library.
 - {{: #dsl} {b Configuration DSL}}: A custom PPX (preprocessor extension) can be used to
   write Kubernetes declarations using a JSON-like syntax with type annotations.
-- {{: #conv} {b YAML-to-Reason converter}}: A convenient CLI utility can be used to
-  translate existing YAML files into typed ReasonML declarations.
 
 {b Note:} This project is currently unstable and unreleased.
 
@@ -162,16 +160,4 @@ not work.
 - [Error: This expression has type foo:string -> X.t but an expression was
 expected of type X.t] – This type error indicates that the [X.make] was not
 fully applied. You need to provide the value for the required key [foo].
-
-
-{1:conv YAML-to-Reason converter}
-
-To facilitate the transition from existing Kubernetes configuration, rekube
-provides a CLI tool called [rekube-conv] that will convert any valid YAML
-manifest file to the ReasonML configuration DSL described above. As part of
-this process it will validate and infer the types of all the objects.
-
-{[
-$ esy rekube-conv my-deployment.yaml
-]}
 

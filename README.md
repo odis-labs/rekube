@@ -8,7 +8,7 @@ The main components of the project are:
 
 - [Kubernetes API](https://odis-labs.github.io/rekube/rekube/index.html#api): The entire Kubernetes API is exposed as a ReasonML library.
 - [Configuration DSL](https://odis-labs.github.io/rekube/rekube/index.html#dsl): A custom PPX (preprocessor extension) can be used to write Kubernetes declarations using a JSON-like syntax with type annotations.
-- [YAML-to-Reason converter](https://rizo.github.io/rekube/rekube/index.html#conv): A convenient CLI utility can be used to translate existing YAML files into typed ReasonML declarations.
+
 Note: This project is currently unstable and unreleased.
 
 ## Quickstart
