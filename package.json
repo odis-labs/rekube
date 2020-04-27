@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@esy-ocaml/reason": ">= 3.4.0 < 3.6.0",
+    "ocaml": "4.6.1000",
     "@opam/cohttp-lwt-unix": "*",
     "@opam/lwt": "*",
     "@opam/ppx_deriving_yojson": "*",
