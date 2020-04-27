@@ -13,27 +13,4 @@ Note: This project is currently unstable and unreleased.
 
 ## Quickstart
 
-To install rekube in an esy project, add the following dependency to your package.json file:
-
-```json
-"dependencies": {
-  "rekube": "github:odis-labs/rekube#f9d8e20"
-}
-```
-
-In your dune project add the following dependencies to your dune file:
-
-
-```lisp
-(executable
-  (name Infra)
-  (public_name gen-infra)
-  (libraries rekube console.lib)
-  (preprocess (pps rekube.ppx)))
-```
-
-Finally, describe your configuration in a file called Infra.re and execute it to generate the raw JSON files.
-
-```
-$ esy gen-infra
-```
+See the [rekube-starter](https://github.com/odis-labs/rekube-starter) project for a working example and detailed instructions.
